@@ -1,0 +1,21 @@
+spring.application.name=demo
+
+server.port=8080
+
+# API Configuration
+companies.house.api.base.url=https://api.company-information.service.gov.uk
+companies.house.api.key=YOUR_API_KEY
+
+# PostgreSQL Configuration
+spring.datasource.url=jdbc:postgresql://localhost:5432/companiesdb
+spring.datasource.username=companies_user
+spring.datasource.password=password123
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+
+# Hibernate DDL (set to 'update' or 'validate' in production)
+spring.jpa.hibernate.ddl-auto=update
+
+# Logging SQL Queries
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+
