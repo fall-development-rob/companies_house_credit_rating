@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1-create-companies-table
+      author: fall-development-rob
+      changes:
+        - createTable:
+            tableName: companies
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: company_number
+                  type: VARCHAR(255)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: company_name
+                  type: VARCHAR(255)
+              - column:
+                  name: status
+                  type: VARCHAR(50)
+              - column:
+                  name: company_type
+                  type: VARCHAR(50)
