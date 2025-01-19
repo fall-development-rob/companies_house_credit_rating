@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Company Credit Score</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Company Credit Score Lookup</h1>
+        <form action="/credit-score" method="get">
+            <label for="companyNumber">Enter Company Number:</label>
+            <input type="text" id="companyNumber" name="companyNumber" placeholder="Enter a valid company number" required>
+            <button type="submit">Get Credit Score</button>
+        </form>
+    </div>
+</body>
+</html>
