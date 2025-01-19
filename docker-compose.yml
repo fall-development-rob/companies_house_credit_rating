@@ -11,6 +11,26 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  liquibase:
+    build:
+      context: .
+      dockerfile: Dockerfile.liquibase
+    container_name: liquibase_container
+    environment:
+      LIQUIBASE_URL: ${LIQUIBASE_URL}
+      LIQUIBASE_USERNAME: ${LIQUIBASE_USERNAME}
+      LIQUIBASE_PASSWORD: ${LIQUIBASE_PASSWORD}
+      LIQUIBASE_CHANGELOG_FILE: ${LIQUIBASE_CHANGELOG_FILE}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: update
 
   app:
     build:

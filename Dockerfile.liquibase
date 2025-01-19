@@ -1,0 +1,5 @@
+FROM liquibase/liquibase:latest
+
+# Copy the changelog files and configuration
+WORKDIR /liquibase
+COPY src/main/resources/db /liquibase/db
