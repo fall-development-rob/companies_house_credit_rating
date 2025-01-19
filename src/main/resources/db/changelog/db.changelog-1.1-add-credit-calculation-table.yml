@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2-create-credit-calculation-table
+      author: fall-development-rob
+      changes:
+        - createTable:
+            tableName: credit-calculation
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: scoring_name
+                  type: VARCHAR(255)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: credit_scoring_amount
+                  type: VARCHAR(255)
+
